@@ -249,6 +249,7 @@ section{position:relative;}
 
 /* schedule + accordion detail */
 .schedule{display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem;}
+@media (max-width:820px){.schedule{grid-template-columns:1fr;}}
 .schedule-item{
   background:var(--white); border:1px solid var(--line); border-radius:var(--radius-img);
   overflow:hidden; display:flex; flex-direction:column;
