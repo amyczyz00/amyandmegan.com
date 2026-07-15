@@ -36,9 +36,18 @@ onScroll();
 // ---------- mobile nav toggle ----------
 const toggle = document.querySelector('.nav-toggle');
 const linksEl = document.querySelector('.nav-links');
+const backdropEl = document.querySelector('.nav-backdrop');
+function setMenuOpen(isOpen){
+  if(!linksEl) return;
+  linksEl.classList.toggle('open', isOpen);
+  if(toggle) toggle.classList.toggle('open', isOpen);
+  if(backdropEl) backdropEl.classList.toggle('open', isOpen);
+}
 if(toggle){
-  toggle.addEventListener('click', () => linksEl.classList.toggle('open'));
-  navLinks.forEach(a => a.addEventListener('click', () => linksEl.classList.remove('open')));
+  toggle.addEventListener('click', () => setMenuOpen(!linksEl.classList.contains('open')));
+  navLinks.forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
+  if(backdropEl) backdropEl.addEventListener('click', () => setMenuOpen(false));
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') setMenuOpen(false); });
 }
 
 // ---------- generic accordion helper ----------
