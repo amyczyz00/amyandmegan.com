@@ -297,6 +297,37 @@ section{position:relative;}
 
 .note-line{font-size:16.5px; color:var(--ink-soft); margin-top:1.6rem; font-style:italic; font-family:var(--serif);}
 
+/* ---------- password gate (client-side deterrent only — not true security) ---------- */
+body.gate-locked{overflow:hidden;}
+.site-gate{
+  position:fixed; inset:0; z-index:500;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ink); text-align:center;
+  opacity:1; transition:opacity .5s var(--ease-out);
+}
+.site-gate.unlocked{opacity:0; pointer-events:none;}
+.site-gate-bg{
+  position:absolute; inset:-40px;
+  background-image:url('../assets/images/og-share.jpg');
+  background-position:center 55%; background-size:cover; background-repeat:no-repeat;
+  filter:blur(38px) saturate(1.05);
+}
+.site-gate::after{content:""; position:absolute; inset:0; background:rgba(250,250,249,.72);}
+.site-gate-inner{position:relative; z-index:1; width:100%; max-width:400px; padding:2rem;}
+.site-gate-mark{font-family:var(--serif); font-size:1.4rem; letter-spacing:.05em; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; gap:.7rem;}
+.site-gate-meta{font-family:var(--sans); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.7rem;}
+.site-gate-title{font-family:var(--serif); font-size:clamp(2.1rem,5vw,2.8rem); margin:0 0 2.4rem; color:var(--ink);}
+.site-gate-title em{font-style:italic;}
+.site-gate-inputrow{display:flex; gap:.6rem;}
+.site-gate-inputrow input{
+  flex:1; min-width:0; padding:.75em 1em; border-radius:6px; border:1px solid var(--line);
+  background:var(--white); color:var(--ink); font-family:var(--sans); font-size:15px;
+}
+.site-gate-inputrow input::placeholder{color:var(--ink-faint);}
+.site-gate-inputrow input:focus{outline:2px solid var(--accent-dark); outline-offset:2px;}
+.site-gate-error{margin:.9rem 0 0; font-size:13px; color:#a33;}
+@media (max-width:480px){.site-gate-inputrow{flex-direction:column;}}
+
 /* ---------- story: text + rotating carousel ---------- */
 .story-layout{display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(2rem,5vw,3.5rem); align-items:start;}
 @media (max-width:900px){.story-layout{grid-template-columns:1fr;}}
@@ -419,7 +450,7 @@ section{position:relative;}
 .hotel-body{padding:1.3rem 1.4rem 1.5rem; flex:1; display:flex; flex-direction:column;}
 .hotel-body h4{font-family:var(--serif); font-size:1.3rem; margin-bottom:.4rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;}
 .hotel-tag{font-family:var(--sans); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; background:var(--accent); color:var(--white); padding:.22em .65em; border-radius:20px;}
-.hotel-meta{font-size:14px; color:var(--ink-soft); margin-bottom:.8rem;}
+.hotel-meta{font-size:14px; color:var(--ink-soft); margin-bottom:.8rem; min-height:5.25em;}
 .hotel-site-link{font-size:13px; margin-bottom:1rem; display:inline-block; text-decoration:underline; text-underline-offset:3px; color:var(--accent-dark);}
 .hotel-body .btn{margin-top:auto; align-self:flex-start;}
 .hotel-code{font-size:12.5px; color:var(--ink-faint); margin-top:.7rem; margin-bottom:0;}
