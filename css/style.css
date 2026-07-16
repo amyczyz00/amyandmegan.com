@@ -406,7 +406,7 @@ section{position:relative;}
 .info-block .sub{color:var(--ink-faint); font-size:13px;}
 
 /* hotel cards — three equal options */
-.hotel-list{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.2rem;}
+.hotel-list{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.2rem; align-items:start;}
 @media (max-width:900px){.hotel-list{grid-template-columns:1fr;}}
 .hotel-card{border:1px solid var(--line); border-radius:var(--radius-img); overflow:hidden; background:var(--white); display:flex; flex-direction:column;}
 .hotel-photo{height:170px; background-size:cover; background-position:center;}
