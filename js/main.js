@@ -78,6 +78,7 @@ function wireAccordionGroup(itemSelector, triggerSelector, panelSelector, exclus
 }
 wireAccordionGroup('.faq-item', '.faq-q', '.faq-a', true);
 wireAccordionGroup('.schedule-item', '.schedule-more', '.schedule-detail', false);
+wireAccordionGroup('.hotel-card', '.hotel-more', '.hotel-detail', false);
 
 // ---------- audio players ----------
 document.querySelectorAll('.audio-card').forEach(audioCard => {
