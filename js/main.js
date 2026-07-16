@@ -1,3 +1,51 @@
+// ---------- password gate (client-side deterrent only — not true security) ----------
+(function(){
+  const gate = document.getElementById('site-gate');
+  if(!gate) return;
+  const STORAGE_KEY = 'awg-site-unlocked';
+  const PASSWORD_HASH = 'ebd3ac3ca1105071b373a7270e8c687303aa0d6e321dd0ac99fba018369da4c0'; // password: holland-dewey
+
+  async function sha256(text){
+    const data = new TextEncoder().encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function unlock(persist){
+    if(persist){ try{ localStorage.setItem(STORAGE_KEY, '1'); } catch(e){} }
+    gate.classList.add('unlocked');
+    document.body.classList.remove('gate-locked');
+    setTimeout(() => { gate.style.display = 'none'; }, 550);
+  }
+
+  let alreadyUnlocked = false;
+  try { alreadyUnlocked = localStorage.getItem(STORAGE_KEY) === '1'; } catch(e){}
+
+  if(alreadyUnlocked){
+    unlock(false);
+  } else {
+    document.body.classList.add('gate-locked');
+  }
+
+  const form = document.getElementById('gateForm');
+  const input = document.getElementById('gatePw');
+  const error = document.getElementById('gateError');
+  if(form){
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const hash = await sha256(input.value.trim().toLowerCase());
+      if(hash === PASSWORD_HASH){
+        error.hidden = true;
+        unlock(true);
+      } else {
+        error.hidden = false;
+        input.value = '';
+        input.focus();
+      }
+    });
+  }
+})();
+
 // ---------- hero video (falls back to the animated photo if no video file exists) ----------
 const heroVideo = document.querySelector('.hero-video');
 if(heroVideo){
