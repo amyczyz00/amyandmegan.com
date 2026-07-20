@@ -2,8 +2,8 @@
 (function(){
   const gate = document.getElementById('site-gate');
   if(!gate) return;
-  const STORAGE_KEY = 'awg-site-unlocked';
-  const PASSWORD_HASH = 'ebd3ac3ca1105071b373a7270e8c687303aa0d6e321dd0ac99fba018369da4c0'; // password: holland-dewey
+  const STORAGE_KEY = 'awg-site-unlocked-2';
+  const PASSWORD_HASH = 'ebd3ac3ca1105071b373a7270e8c687303aa0d6e321dd0ac99fba018369da4c0';
 
   async function sha256(text){
     const data = new TextEncoder().encode(text);
