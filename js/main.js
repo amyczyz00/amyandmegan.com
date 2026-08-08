@@ -99,11 +99,18 @@ if(toggle){
 }
 
 // ---------- generic accordion helper ----------
+let accordionPanelId = 0;
 function wireAccordionGroup(itemSelector, triggerSelector, panelSelector, exclusive){
   document.querySelectorAll(itemSelector).forEach(item => {
     const trigger = item.querySelector(triggerSelector);
     const panel = item.querySelector(panelSelector);
     if(!trigger || !panel) return;
+    const panelId = panel.id || `accordion-panel-${++accordionPanelId}`;
+    panel.id = panelId;
+    trigger.setAttribute('type', 'button');
+    trigger.setAttribute('aria-controls', panelId);
+    trigger.setAttribute('aria-expanded', String(item.classList.contains('open')));
+    panel.setAttribute('aria-hidden', String(!item.classList.contains('open')));
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       if(exclusive){
@@ -111,15 +118,21 @@ function wireAccordionGroup(itemSelector, triggerSelector, panelSelector, exclus
           if(other !== item){
             other.classList.remove('open');
             other.querySelector(panelSelector).style.maxHeight = null;
+            other.querySelector(triggerSelector)?.setAttribute('aria-expanded', 'false');
+            other.querySelector(panelSelector)?.setAttribute('aria-hidden', 'true');
           }
         });
       }
       if(isOpen){
         item.classList.remove('open');
         panel.style.maxHeight = null;
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
       } else {
         item.classList.add('open');
         panel.style.maxHeight = panel.scrollHeight + 'px';
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
       }
     });
   });
@@ -127,36 +140,6 @@ function wireAccordionGroup(itemSelector, triggerSelector, panelSelector, exclus
 wireAccordionGroup('.faq-item', '.faq-q', '.faq-a', true);
 wireAccordionGroup('.schedule-item', '.schedule-more', '.schedule-detail', false);
 wireAccordionGroup('.hotel-card', '.hotel-more', '.hotel-detail', false);
-
-// ---------- audio players ----------
-document.querySelectorAll('.audio-card').forEach(audioCard => {
-  const audioEl = audioCard.querySelector('audio');
-  const playBtn = audioCard.querySelector('.audio-play');
-  if(!audioEl || !playBtn) return;
-  const iconPlay = playBtn.querySelector('.icon-play');
-  const iconPause = playBtn.querySelector('.icon-pause');
-
-  playBtn.addEventListener('click', () => {
-    document.querySelectorAll('.audio-card audio').forEach(other => {
-      if(other !== audioEl && !other.paused){ other.pause(); }
-    });
-    if(audioEl.paused){
-      audioEl.play().catch(() => { audioCard.classList.toggle('playing'); });
-    } else {
-      audioEl.pause();
-    }
-  });
-  audioEl.addEventListener('play', () => {
-    audioCard.classList.add('playing');
-    if(iconPlay) iconPlay.style.display = 'none';
-    if(iconPause) iconPause.style.display = 'block';
-  });
-  ['pause','ended'].forEach(evt => audioEl.addEventListener(evt, () => {
-    audioCard.classList.remove('playing');
-    if(iconPlay) iconPlay.style.display = 'block';
-    if(iconPause) iconPause.style.display = 'none';
-  }));
-});
 
 // ---------- story photo carousel ----------
 const carousel = document.querySelector('.story-carousel');

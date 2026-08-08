@@ -6,10 +6,9 @@ A static site, ready to push straight to GitHub Pages.
 - `index.html` — the main scrolling page (story, weekend, travel, stay, things to do, packing, FAQ, registry)
 - `rsvp.html` — a standalone RSVP page, linked from the top nav on every page
 - `css/style.css` — all styling
-- `js/main.js` — nav, FAQ + schedule accordions, dual audio players, scroll effects
+- `js/main.js` — nav, FAQ + schedule accordions, photo carousel, scroll effects
 - `assets/images/` — your real photos, already sized for web
 - `assets/video/` — drop a `hero-loop.mp4` here to power a video hero background (see below)
-- `assets/audio/` — put `amy-version.mp3` and `megan-version.mp3` here to power the two "Our story" players
 
 ## The hero video
 The hero currently shows your aerial boat photo with a slow zoom, plus a small animated boat gliding across the water — a lightweight stand-in for real footage, inspired by how Villa Porta's own site uses a looping background video.
@@ -30,7 +29,6 @@ To upgrade to a real video (recommended for the most "upscale" feel):
 ## Things to swap in before launch
 - **RSVP page** (`rsvp.html`) — replace the placeholder button with your RSVP platform's URL or embed code once you've chosen one.
 - **Registry button** (`#registry` section in `index.html`) — same, once you've picked a registry.
-- **Audio** — drop `amy-version.mp3` and `megan-version.mp3` into `assets/audio/`.
 - **Contact email** — currently `hello@amyandmegan.com` in the footer, update to your real address.
 - **Concierge email** — currently `eventsconcierge@villaporta.style` in the Travel and Stay sections.
 - **Accommodation details** in the Stay section, once room blocks are confirmed.
