@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="RSVP &middot; 4 June 2027 &middot; Amy &amp; Megan">
 <meta name="twitter:image" content="https://amyandmegan.com/assets/images/og-share.jpg">
 
-<link rel="stylesheet" href="css/style.css?v=20260807">
+<link rel="stylesheet" href="css/style.css?v=20260807-4">
 <link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -33,24 +33,25 @@
     <div class="site-gate-mark">A <span class="mark-bar"></span> M</div>
     <p class="site-gate-meta">4 June 2027 &middot; Lake Maggiore, Italy</p>
     <h1 class="site-gate-title">Amy <em>&amp;</em> Megan</h1>
-    <form class="site-gate-form" id="gateForm" autocomplete="off">
+    <form class="site-gate-form" id="gateForm">
       <div class="site-gate-inputrow">
-        <input type="password" id="gatePw" name="gatePw" placeholder="Password" autocomplete="off" required>
+        <label class="sr-only" for="gatePw">Password</label>
+        <input type="password" id="gatePw" name="gatePw" placeholder="Password" autocomplete="current-password" aria-describedby="gateError" required>
         <button type="submit" class="btn solid">Enter</button>
       </div>
-      <p class="site-gate-error" id="gateError" hidden>That's not quite it &mdash; try again.</p>
+      <p class="site-gate-error" id="gateError" role="alert" hidden>That's not quite it &mdash; try again.</p>
     </form>
   </div>
 </div>
 
-<nav class="site-nav scrolled">
+<nav class="site-nav scrolled" inert aria-hidden="true">
   <a href="index.html" class="nav-mark">A <span class="mark-bar"></span> M</a>
-  <button class="nav-toggle" aria-label="Open menu">
+  <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation">
     <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></svg>
   </button>
   <div class="nav-backdrop"></div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-navigation">
     <li><a href="index.html#story">Our story</a></li>
     <li><a href="index.html#weekend">The weekend</a></li>
     <li><a href="index.html#travel">Travel</a></li>
@@ -61,16 +62,16 @@
     <li><a href="index.html#registry">Registry</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="rsvp.html" class="btn solid active">RSVP</a>
+    <a href="rsvp.html" class="btn solid active" aria-current="page">RSVP</a>
   </div>
 </nav>
 
-<main>
+<main inert aria-hidden="true">
 
 <div class="page-header">
   <div class="wrap">
     <span class="eyebrow">RSVP</span>
-    <h2>Let's party!</h2>
+    <h1 tabindex="-1">Let's party!</h1>
     <p class="lede">Please let us know as soon as possible if you intend to join us.</p>
   </div>
 </div>
@@ -80,22 +81,22 @@
     <div class="pane">
       <div class="pane-copy">
         <p>We&rsquo;re so excited to celebrate with you at Lake Maggiore!</p>
-        <p>As this is an intimate destination wedding with limited space and overseas logistics, sharing your plans as soon as possible greatly helps us plan as best as possible.</p>
+        <p>Because this is an intimate destination wedding with limited space and overseas logistics, sharing your plans early helps us plan thoughtfully.</p>
         <p><strong>Please complete your Intent to Attend by September 15.</strong></p>
-        <p>Formal invitations and RSVP to follow. Text Amy or Megan with any questions!</p>
+        <p>Formal invitations and the official RSVP will follow. Text Amy or Megan with any questions!</p>
         <a href="https://forms.gle/Bddp1RMRTRT9xCXB9" target="_blank" rel="noopener" class="btn solid">Intent to Attend</a>
-        <a href="#" class="btn" aria-disabled="true">RSVP (coming soon)</a>
+        <button type="button" class="btn" disabled>RSVP (coming soon)</button>
       </div>
       <div class="pane-media" style="background-image:url('assets/images/venue-terrace.jpg');"></div>
     </div>
 
-    <p class="note-line" style="margin-top:2.4rem;">Questions? Check out the FAQ page, email our guest concierge at <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a>, or text Amy &amp; Megan!</p>
+    <p class="note-line" style="margin-top:2.4rem;">Questions? Check out the <a href="index.html#faq">FAQ page</a>, email our guest concierge at <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a>, or text Amy &amp; Megan!</p>
   </div>
 </section>
 
 </main>
 
-<footer>
+<footer inert aria-hidden="true">
   <div class="wrap">
     <div class="footer-inner">
       <div>
@@ -112,6 +113,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807"></script>
+<script src="js/main.js?v=20260807-3"></script>
 </body>
 </html>

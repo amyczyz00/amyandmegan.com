@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Join us for a weekend on Lake Maggiore as we get married at Villa Porta — 4 June 2027.">
 <meta name="twitter:image" content="https://amyandmegan.com/assets/images/og-share.jpg">
 
-<link rel="stylesheet" href="css/style.css?v=20260807">
+<link rel="stylesheet" href="css/style.css?v=20260807-4">
 <link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -34,24 +34,25 @@
     <div class="site-gate-mark">A <span class="mark-bar"></span> M</div>
     <p class="site-gate-meta">4 June 2027 &middot; Lake Maggiore, Italy</p>
     <h1 class="site-gate-title">Amy <em>&amp;</em> Megan</h1>
-    <form class="site-gate-form" id="gateForm" autocomplete="off">
+    <form class="site-gate-form" id="gateForm">
       <div class="site-gate-inputrow">
-        <input type="password" id="gatePw" name="gatePw" placeholder="Password" autocomplete="off" required>
+        <label class="sr-only" for="gatePw">Password</label>
+        <input type="password" id="gatePw" name="gatePw" placeholder="Password" autocomplete="current-password" aria-describedby="gateError" required>
         <button type="submit" class="btn solid">Enter</button>
       </div>
-      <p class="site-gate-error" id="gateError" hidden>That's not quite it &mdash; try again.</p>
+      <p class="site-gate-error" id="gateError" role="alert" hidden>That's not quite it &mdash; try again.</p>
     </form>
   </div>
 </div>
 
-<nav class="site-nav">
+<nav class="site-nav" inert aria-hidden="true">
   <a href="#top" class="nav-mark">A <span class="mark-bar"></span> M</a>
-  <button class="nav-toggle" aria-label="Open menu">
+  <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation">
     <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></svg>
   </button>
   <div class="nav-backdrop"></div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-navigation">
     <li><a href="#story">Our story</a></li>
     <li><a href="#weekend">The weekend</a></li>
     <li><a href="#travel">Travel</a></li>
@@ -66,17 +67,14 @@
   </div>
 </nav>
 
-<main>
+<main inert aria-hidden="true">
 
 <!-- ============ HERO ============ -->
 <section id="top" class="hero">
   <div class="hero-bg"></div>
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-aerial-boat.jpg">
-    <source src="assets/video/hero-loop.mp4" type="video/mp4">
-  </video>
   <div class="hero-inner">
     <p class="hero-meta">4 June 2027 &middot; Villa Porta &middot; Lake Maggiore, Italy</p>
-    <h1 class="hero-names">Amy <em>&amp;</em> Megan</h1>
+    <h1 class="hero-names" tabindex="-1">Amy <em>&amp;</em> Megan</h1>
     <a href="rsvp.html" class="btn on-dark">RSVP</a>
   </div>
 </section>
@@ -94,7 +92,7 @@
       <div class="reveal story-text">
         <p>Our story began in 2024 at a rooftop bar in Berkeley, California, where we quickly bonded over our golden retrievers, love of adventure, and endless yapping. We fell in love somewhere between the redwoods of Northern California, cliffs of Yosemite, shores of Lake Tahoe, vineyards of Napa, sunsets of Cabo, bright lights of Las Vegas, and parks of Mexico City. Little did we know, our adventures were just beginning&hellip;</p>
 
-        <p>In January 2025, Megan got word of a new assignment to Aviano Air Base&hellip; in Northern Italy. Unsure exactly what the move would mean for us, we secured approval for Amy to work remotely, vowed to give it our best shot, and let the universe take it from there. That July, we packed Megan&rsquo;s bags, a few of Amy&rsquo;s, and boarded a flight to Venice with Holland in-hand.</p>
+        <p>In January 2025, Megan got word of a new assignment to Aviano Air Base&hellip; in Northern Italy. Unsure exactly what the move would mean for us, we secured approval for Amy to work remotely, vowed to give it our best shot, and let the universe take it from there. That July, we packed Megan&rsquo;s bags, a few of Amy&rsquo;s, and boarded a flight to Venice with Holland in hand.</p>
 
         <p>The Italian learning curve was steep. But a few allergic reactions, language barriers, housing mishaps, and a lot of airline miles later, Northern Italy began to feel like home&mdash;and our little family was taking shape before our eyes. During our first year abroad, we defeated Italian bureaucracy and secured a coveted Digital Nomad Visa for Amy. We also traveled&mdash;a lot. Our growing fridge-magnet collection proudly serves as the memory book of our adventures across Italy, Slovenia, Austria, Croatia, Great Britain, Spain, and Switzerland, highlighted by the 2026 Winter Olympics in Milano Cortina.</p>
 
@@ -106,77 +104,81 @@
       </div>
 
       <div class="story-visual">
-        <div class="story-carousel reveal" aria-label="Photos of Amy and Megan's travels together">
+        <div class="story-carousel reveal" role="region" aria-roledescription="carousel" aria-label="Photos of Amy and Megan's travels together">
           <div class="story-carousel-track">
-          <img src="assets/images/travel/travel-berkeley.jpg" data-caption="Berkeley, CA" alt="Amy and Megan in Berkeley, California">
-          <img src="assets/images/travel/travel-sf.jpg" data-caption="San Francisco, CA" alt="Amy and Megan in San Francisco, California">
-          <img src="assets/images/travel/travel-marin.jpg" data-caption="Marin, CA" alt="Amy and Megan in Marin, California">
-          <img src="assets/images/travel/travel-marin2.jpg" data-caption="Marin, CA" alt="Amy and Megan in Marin, California">
-          <img src="assets/images/travel/travel-napa.jpg" data-caption="Napa, CA" alt="Amy and Megan in Napa, California">
-          <img src="assets/images/travel/travel-wrights1.jpg" data-caption="Wrights Lake, CA" alt="Amy and Megan at Wrights Lake, California">
-          <img src="assets/images/travel/travel-wrights2.jpg" data-caption="Wrights Lake, CA" alt="Amy and Megan at Wrights Lake, California">
-          <img src="assets/images/travel/travel-wrights3.jpg" data-caption="Wrights Lake, CA" alt="Amy and Megan hiking at Wrights Lake, California">
-          <img src="assets/images/travel/travel-yosemite.jpg" data-caption="Yosemite National Park" alt="Amy and Megan at Yosemite National Park">
-          <img src="assets/images/travel/travel-yosemite-dogs.jpg" data-caption="Yosemite National Park" alt="Amy and Megan with the dogs at Yosemite National Park">
-          <img src="assets/images/travel/travel-hounds.jpg" data-caption="Home, with the hounds" alt="Holland and a second golden retriever together">
-          <img src="assets/images/travel/travel-vegas.jpg" data-caption="Las Vegas, NV" alt="Amy and Megan in Las Vegas, Nevada">
-          <img src="assets/images/travel/travel-cabo1.jpg" data-caption="Cabo, Mexico" alt="Amy and Megan in Cabo, Mexico">
-          <img src="assets/images/travel/travel-cabo2.jpg" data-caption="Cabo, Mexico" alt="Amy and Megan in Cabo, Mexico">
-          <img src="assets/images/travel/travel-mexico-waterfall.jpg" data-caption="Mexico" alt="Amy and Megan at a waterfall hike in Mexico">
-          <img src="assets/images/travel/travel-going-away.jpg" data-caption="Bay Area, CA" alt="Megan's going away party before the move to Italy, 2025">
-          <img src="assets/images/travel/travel-haleakala.jpg" data-caption="Haleakala, Maui" alt="Amy and Megan at Haleakala National Park, Maui">
-          <img src="assets/images/travel/travel-maui.jpg" data-caption="Maui, Hawaii" alt="Amy and Megan in Maui, Hawaii">
-          <img src="assets/images/travel/trio-maui-sunset.jpg" data-caption="Maui, Hawaii" alt="Amy and Megan embracing at sunset in Maui, Hawaii">
-          <img src="assets/images/travel/travel-trieste.jpg" data-caption="Trieste, Italy" alt="Amy and Megan in Trieste, Italy">
-          <img src="assets/images/travel/travel-milan.jpg" data-caption="Milan, Italy" alt="Amy and Megan in Milan, Italy">
-          <img src="assets/images/travel/travel-duomo.jpg" data-caption="Milan, Italy" alt="Amy and Megan at the Duomo in Milan, Italy">
-          <img src="assets/images/travel/travel-olympics.jpg" data-caption="Milano Cortina, Italy" alt="Amy and Megan at the 2026 Winter Olympics, Milano Cortina">
-          <img src="assets/images/travel/travel-cortina.jpg" data-caption="Cortina, Italy" alt="Amy and Megan in Cortina, Italy">
-          <img src="assets/images/travel/travel-corvara.jpg" data-caption="Corvara, Italy" alt="Amy and Megan in Corvara, Italy">
-          <img src="assets/images/travel/travel-dolomites-ferrata.jpg" data-caption="The Dolomites, Italy" alt="Amy and Megan on a via ferrata in the Dolomites">
-          <img src="assets/images/travel/travel-dolomites-spa.jpg" data-caption="The Dolomites, Italy" alt="Amy and Megan at a mountain spa day in the Dolomites">
-          <img src="assets/images/travel/travel-braies-scenery.jpg" data-caption="Lago di Braies, Italy" alt="The turquoise waters of Lago di Braies, Italy">
-          <img src="assets/images/travel/travel-braies.jpg" data-caption="Lago di Braies, Italy" alt="Amy and Megan at Lago di Braies, Italy">
-          <img src="assets/images/travel/travel-como1.jpg" data-caption="Lake Como, Italy" alt="Amy and Megan at Lake Como, Italy">
-          <img src="assets/images/travel/travel-como2.jpg" data-caption="Lake Como, Italy" alt="Amy and Megan at Lake Como, Italy">
-          <img src="assets/images/travel/travel-barcis.jpg" data-caption="Lago di Barcis, Italy" alt="Amy and Megan at Lago di Barcis, Italy">
-          <img src="assets/images/travel/travel-bled.jpg" data-caption="Lake Bled, Slovenia" alt="Amy and Megan at Lake Bled, Slovenia">
-          <img src="assets/images/travel/travel-venice1.jpg" data-caption="Venice, Italy" alt="Amy and Megan in Venice, Italy">
-          <img src="assets/images/travel/travel-venice-gondola.jpg" data-caption="Venice, Italy" alt="Amy and Megan on a gondola in Venice, Italy">
-          <img src="assets/images/travel/travel-florence.jpg" data-caption="Florence, Italy" alt="Amy and Megan in Florence, Italy">
-          <img src="assets/images/travel/travel-trevi1.jpg" data-caption="Rome, Italy" alt="Amy and Megan at the Trevi Fountain, Rome">
-          <img src="assets/images/travel/travel-trevi2.jpg" data-caption="Rome, Italy" alt="Amy and Megan at the Trevi Fountain, Rome">
-          <img src="assets/images/travel/travel-pordenone.jpg" data-caption="Pordenone, Italy" alt="Amy and Megan in Pordenone, Italy">
-          <img src="assets/images/travel/travel-oxford.jpg" data-caption="Oxford, United Kingdom" alt="Amy and Megan in Oxford, United Kingdom">
-          <img src="assets/images/travel/travel-salzburg.jpg" data-caption="Salzburg, Austria" alt="Amy and Megan in Salzburg, Austria">
-          <img src="assets/images/travel/travel-rovinj.jpg" data-caption="Rovinj, Croatia" alt="Amy and Megan in Rovinj, Croatia">
-          <img src="assets/images/travel/travel-barcelona.jpg" data-caption="Barcelona, Spain" alt="Amy and Megan in Barcelona, Spain">
-          <img src="assets/images/travel/travel-sagrada-familia.jpg" data-caption="Barcelona, Spain" alt="Amy and Megan at La Sagrada Familia, Barcelona">
-          <img src="assets/images/travel/travel-grindelwald.jpg" data-caption="Grindelwald, Switzerland" alt="Amy and Megan in Grindelwald, Switzerland">
-          <img src="assets/images/travel/travel-interlaken.jpg" data-caption="Interlaken, Switzerland" alt="Holland at Interlaken, Switzerland">
-          <img src="assets/images/travel/travel-castello-bevilaqua.jpg" data-caption="Castello Bevilaqua, Italy" alt="Amy and Megan at Castello Bevilaqua, Italy">
+          <img src="assets/images/travel/travel-berkeley.jpg" width="1000" height="1332" data-caption="Berkeley, CA" alt="Amy and Megan in Berkeley, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-sf.jpg" width="1000" height="1333" data-caption="San Francisco, CA" alt="Amy and Megan in San Francisco, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-marin.jpg" width="1000" height="1333" data-caption="Marin, CA" alt="Amy and Megan in Marin, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-marin2.jpg" width="1037" height="1600" data-caption="Marin, CA" alt="Amy and Megan in Marin, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-napa.jpg" width="1000" height="750" data-caption="Napa, CA" alt="Amy and Megan in Napa, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-wrights1.jpg" width="1000" height="1333" data-caption="Wrights Lake, CA" alt="Amy and Megan at Wrights Lake, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-wrights2.jpg" width="1000" height="1332" data-caption="Wrights Lake, CA" alt="Amy and Megan at Wrights Lake, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-wrights3.jpg" width="1000" height="1332" data-caption="Wrights Lake, CA" alt="Amy and Megan hiking at Wrights Lake, California" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-yosemite.jpg" width="1000" height="1333" data-caption="Yosemite National Park" alt="Amy and Megan at Yosemite National Park" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-yosemite-dogs.jpg" width="1000" height="1333" data-caption="Yosemite National Park" alt="Amy and Megan with the dogs at Yosemite National Park" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-hounds.jpg" width="1000" height="1333" data-caption="Home, with the hounds" alt="Holland and a second golden retriever together" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-vegas.jpg" width="1000" height="1333" data-caption="Las Vegas, NV" alt="Amy and Megan in Las Vegas, Nevada" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-cabo1.jpg" width="1000" height="1333" data-caption="Cabo, Mexico" alt="Amy and Megan in Cabo, Mexico" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-cabo2.jpg" width="1000" height="1333" data-caption="Cabo, Mexico" alt="Amy and Megan in Cabo, Mexico" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-mexico-waterfall.jpg" width="1000" height="1333" data-caption="Mexico" alt="Amy and Megan at a waterfall hike in Mexico" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-going-away.jpg" width="1000" height="1333" data-caption="Bay Area, CA" alt="Megan's going away party before the move to Italy, 2025" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-haleakala.jpg" width="1000" height="750" data-caption="Haleakala, Maui" alt="Amy and Megan at Haleakala National Park, Maui" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-maui.jpg" width="1000" height="1333" data-caption="Maui, Hawaii" alt="Amy and Megan in Maui, Hawaii" loading="lazy" decoding="async">
+          <img src="assets/images/travel/trio-maui-sunset.jpg" width="1000" height="750" data-caption="Maui, Hawaii" alt="Amy and Megan embracing at sunset in Maui, Hawaii" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-trieste.jpg" width="1000" height="1333" data-caption="Trieste, Italy" alt="Amy and Megan in Trieste, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-milan.jpg" width="1000" height="1333" data-caption="Milan, Italy" alt="Amy and Megan in Milan, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-duomo.jpg" width="1000" height="1333" data-caption="Milan, Italy" alt="Amy and Megan at the Duomo in Milan, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-olympics.jpg" width="1000" height="1333" data-caption="Milano Cortina, Italy" alt="Amy and Megan at the 2026 Winter Olympics, Milano Cortina" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-cortina.jpg" width="1000" height="750" data-caption="Cortina, Italy" alt="Amy and Megan in Cortina, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-corvara.jpg" width="1000" height="750" data-caption="Corvara, Italy" alt="Amy and Megan in Corvara, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-dolomites-ferrata.jpg" width="1000" height="1333" data-caption="The Dolomites, Italy" alt="Amy and Megan on a via ferrata in the Dolomites" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-dolomites-spa.jpg" width="1000" height="1332" data-caption="The Dolomites, Italy" alt="Amy and Megan at a mountain spa day in the Dolomites" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-braies-scenery.jpg" width="1000" height="1333" data-caption="Lago di Braies, Italy" alt="The turquoise waters of Lago di Braies, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-braies.jpg" width="1000" height="1332" data-caption="Lago di Braies, Italy" alt="Amy and Megan at Lago di Braies, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-como1.jpg" width="1000" height="1333" data-caption="Lake Como, Italy" alt="Amy and Megan at Lake Como, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-como2.jpg" width="1000" height="1333" data-caption="Lake Como, Italy" alt="Amy and Megan at Lake Como, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-barcis.jpg" width="1000" height="1333" data-caption="Lago di Barcis, Italy" alt="Amy and Megan at Lago di Barcis, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-bled.jpg" width="1000" height="1333" data-caption="Lake Bled, Slovenia" alt="Amy and Megan at Lake Bled, Slovenia" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-venice1.jpg" width="1000" height="1332" data-caption="Venice, Italy" alt="Amy and Megan in Venice, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-venice-gondola.jpg" width="1000" height="1333" data-caption="Venice, Italy" alt="Amy and Megan on a gondola in Venice, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-florence.jpg" width="1000" height="1333" data-caption="Florence, Italy" alt="Amy and Megan in Florence, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-trevi1.jpg" width="1000" height="1333" data-caption="Rome, Italy" alt="Amy and Megan at the Trevi Fountain, Rome" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-trevi2.jpg" width="1000" height="1333" data-caption="Rome, Italy" alt="Amy and Megan at the Trevi Fountain, Rome" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-pordenone.jpg" width="1000" height="1333" data-caption="Pordenone, Italy" alt="Amy and Megan in Pordenone, Italy" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-oxford.jpg" width="1000" height="1333" data-caption="Oxford, United Kingdom" alt="Amy and Megan in Oxford, United Kingdom" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-salzburg.jpg" width="1000" height="1333" data-caption="Salzburg, Austria" alt="Amy and Megan in Salzburg, Austria" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-rovinj.jpg" width="1000" height="1333" data-caption="Rovinj, Croatia" alt="Amy and Megan in Rovinj, Croatia" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-barcelona.jpg" width="1000" height="1333" data-caption="Barcelona, Spain" alt="Amy and Megan in Barcelona, Spain" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-sagrada-familia.jpg" width="1000" height="1333" data-caption="Barcelona, Spain" alt="Amy and Megan at La Sagrada Familia, Barcelona" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-grindelwald.jpg" width="1000" height="1333" data-caption="Grindelwald, Switzerland" alt="Amy and Megan in Grindelwald, Switzerland" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-interlaken.jpg" width="1000" height="1333" data-caption="Interlaken, Switzerland" alt="Holland at Interlaken, Switzerland" loading="lazy" decoding="async">
+          <img src="assets/images/travel/travel-castello-bevilaqua.jpg" width="1000" height="1333" data-caption="Castello Bevilaqua, Italy" alt="Amy and Megan at Castello Bevilaqua, Italy" loading="lazy" decoding="async">
           </div>
           <div class="story-carousel-caption"></div>
-          <button class="story-carousel-arrow prev" aria-label="Previous photo">
+          <button type="button" class="story-carousel-arrow prev" aria-label="Previous photo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
-          <button class="story-carousel-arrow next" aria-label="Next photo">
+          <button type="button" class="story-carousel-arrow next" aria-label="Next photo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="story-carousel-pause" aria-label="Pause photo rotation" aria-pressed="false">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </button>
         </div>
 
         <p class="eyebrow trio-label">The Proposal(s)</p>
         <div class="story-trio reveal">
           <figure>
-            <img src="assets/images/travel/trio-garda-new.jpg" alt="Amy and Megan laughing on a boat on Lake Garda with Holland">
+            <img src="assets/images/travel/trio-garda-new.jpg" width="1000" height="1396" alt="Amy and Megan laughing on a boat on Lake Garda with Holland" loading="lazy" decoding="async">
             <figcaption>Lake Garda</figcaption>
           </figure>
           <figure>
-            <img src="assets/images/travel/trio-braies-engagement.jpg" alt="Amy waving with her engagement ring and Holland at Lago di Braies, Italy">
+            <img src="assets/images/travel/trio-braies-engagement.jpg" width="1000" height="1333" alt="Amy waving with her engagement ring and Holland at Lago di Braies, Italy" loading="lazy" decoding="async">
             <figcaption>Lake Braies</figcaption>
           </figure>
           <figure>
-            <img src="assets/images/travel/trio-holland-ring.jpg" alt="Holland the golden retriever with a plush ring toy">
+            <img src="assets/images/travel/trio-holland-ring.jpg" width="1000" height="1333" alt="Holland the golden retriever with a plush ring toy" loading="lazy" decoding="async">
             <figcaption>Package Deal</figcaption>
           </figure>
         </div>
@@ -203,13 +205,14 @@
 
     <div class="schedule reveal">
       <div class="schedule-item">
-        <img class="schedule-thumb" style="object-position:center 45%;" src="assets/images/brasserie2.jpg" alt="The Lakeside Brasserie terrace at Villa Porta, overlooking the water">
+        <img class="schedule-thumb" style="object-position:center 45%;" src="assets/images/brasserie2.jpg" width="1360" height="1020" alt="The Lakeside Brasserie terrace at Villa Porta, overlooking the water" loading="lazy" decoding="async">
         <div class="schedule-body">
         <span class="schedule-day">Thursday</span>
-        <h3>Benvenuti al Lago!</h3>
+        <h3 lang="it">Benvenuti al Lago!</h3>
+        <span class="schedule-translation">Welcome to the Lake</span>
         <span class="when">3 June &middot; Villa Porta &middot; Lakeside Brasserie</span>
         <p>A relaxed first night to welcome our family and friends to one of our favorite places &mdash; delicious drinks &amp; bites, waterside terrace, sunset views, and a chance to settle in and say hi.</p>
-        <button class="schedule-more"><span class="plus"></span> Details</button>
+        <button type="button" class="schedule-more"><span class="plus"></span> Details</button>
         <div class="schedule-detail">
           <div class="schedule-detail-inner">
             <dl>
@@ -218,25 +221,26 @@
               <dt>Time</dt>
               <dd>7:00 PM</dd>
               <dt>Good to know</dt>
-              <dd>Bring a light layer, it can cool off over the water in the evening.</dd>
+              <dd>Bring a light layer; it can cool off over the water in the evening.</dd>
             </dl>
           </div>
         </div>
         </div>
       </div>
       <div class="schedule-item">
-        <img class="schedule-thumb" style="object-position:center 38%;" src="assets/images/cerimonia2.jpg" alt="The ceremony terrace at Villa Porta, set up with white chairs overlooking Lake Maggiore">
+        <img class="schedule-thumb" style="object-position:center 38%;" src="assets/images/cerimonia2.jpg" width="1800" height="1200" alt="The ceremony terrace at Villa Porta, set up with white chairs overlooking Lake Maggiore" loading="lazy" decoding="async">
         <div class="schedule-body">
         <span class="schedule-day">Friday</span>
-        <h3>La Bella Giornata</h3>
+        <h3 lang="it">La Bella Giornata</h3>
+        <span class="schedule-translation">The Beautiful Day</span>
         <span class="when">4 June &middot; Villa Porta &middot; Skyview &amp; Limonaia Ballroom</span>
-        <p><em>The Beautiful Day &mdash;</em> a lakeside ceremony and reception, complete with fine Italian food, drink, dessert, and dancing the night away.</p>
-        <button class="schedule-more"><span class="plus"></span> Details</button>
+        <p>A lakeside ceremony and reception, complete with fine Italian food, drink, dessert, and dancing the night away.</p>
+        <button type="button" class="schedule-more"><span class="plus"></span> Details</button>
         <div class="schedule-detail">
           <div class="schedule-detail-inner">
             <dl>
               <dt>Attire</dt>
-              <dd>Formal: men in navy or black suits, women in long dresses.</dd>
+              <dd>Formal: navy or black suits, or long dresses in any color.</dd>
               <dt>Order of the day</dt>
               <dd>Ceremony &middot; Grand Welcome Aperitif &middot; Seated Dinner &middot; Cake &amp; Toast &middot; Dancing</dd>
               <dt>Ceremony time</dt>
@@ -247,13 +251,14 @@
         </div>
       </div>
       <div class="schedule-item">
-        <img class="schedule-thumb" src="assets/images/brunch-coffee-lake.jpg" alt="Coffee and Italian pastries overlooking Lake Maggiore">
+        <img class="schedule-thumb" src="assets/images/brunch-coffee-lake.jpg" width="1600" height="1066" alt="Coffee and Italian pastries overlooking Lake Maggiore" loading="lazy" decoding="async">
         <div class="schedule-body">
         <span class="schedule-day">Saturday</span>
-        <h3>Arrivederci amici</h3>
+        <h3 lang="it">Arrivederci, Amici</h3>
+        <span class="schedule-translation">Goodbye, Friends</span>
         <span class="when">5 June &middot; Villa Porta &middot; Veranda Panoramica</span>
         <p>One more lakeside moment together with a beautiful Italian breakfast buffet &amp; beverages &mdash; <em>&ldquo;until we meet again, friends.&rdquo;</em></p>
-        <button class="schedule-more"><span class="plus"></span> Details</button>
+        <button type="button" class="schedule-more"><span class="plus"></span> Details</button>
         <div class="schedule-detail">
           <div class="schedule-detail-inner">
             <dl>
@@ -297,11 +302,11 @@
 
         <div class="info-grid" style="margin-top:1.6rem;">
           <div class="info-block">
-            <h4>Milan Malpensa (MXP)</h4>
+            <h3>Milan Malpensa (MXP)</h3>
             <span class="sub">~1h 15m to Villa Porta &middot; best US connections</span>
           </div>
           <div class="info-block">
-            <h4>Milan Linate (LIN)</h4>
+            <h3>Milan Linate (LIN)</h3>
             <span class="sub">~1h 30m to Villa Porta &middot; mostly European routes</span>
           </div>
         </div>
@@ -314,8 +319,8 @@
       </div>
       <div class="reveal">
         <div class="concierge-card" style="margin-top:0;">
-          <h4>Complimentary Guest Concierge</h4>
-          <p>Villa Porta&rsquo;s guest concierge is available to help you with logistics, including accommodations and ground transportation. We recommend pre-booking transportation (if not renting a car), rideshare is less common in Italy.</p>
+          <h3>Complimentary Guest Concierge</h3>
+          <p>Villa Porta&rsquo;s guest concierge is available to help you with logistics, including accommodations and ground transportation. If you&rsquo;re not renting a car, we recommend pre-booking transportation; rideshare availability is limited in Italy.</p>
           <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a>
         </div>
       </div>
@@ -347,11 +352,11 @@
       <div class="hotel-card">
         <div class="hotel-photo" style="background-image:url('assets/images/stay-suite.jpg');"></div>
         <div class="hotel-body">
-          <h4>Villa Porta <span class="hotel-tag">On-site</span></h4>
-          <p class="hotel-meta">Most convenient, luxury, lakefront property. Limited availability, book asap.</p>
+          <h3>Villa Porta <span class="hotel-tag">On-site</span></h3>
+          <p class="hotel-meta">Most convenient, luxury lakefront property. Limited availability; book ASAP.</p>
           <a href="https://www.villaporta.style" target="_blank" rel="noopener" class="hotel-site-link">villaporta.style</a>
           <a href="https://www.simplebooking.it/ibe2/hotel/2796?lang=EN&amp;cur=EUR" target="_blank" rel="noopener" class="btn">Book directly</a>
-          <button class="hotel-more"><span class="plus"></span> Booking Instructions</button>
+          <button type="button" class="hotel-more"><span class="plus"></span> Booking Instructions</button>
           <div class="hotel-detail">
             <div class="hotel-detail-inner">
               <p><strong>Booking Code</strong>: wedding Czyz&amp;Haley</p>
@@ -367,15 +372,15 @@
       <div class="hotel-card">
         <div class="hotel-photo" style="background-image:url('assets/images/hotel-camin.jpg');"></div>
         <div class="hotel-body">
-          <h4>Camin Hotel Luino</h4>
-          <p class="hotel-meta">6 minutes from Villa Porta &mdash; charming property on the Luino promenade. Limited availability, book asap.</p>
+          <h3>Camin Hotel Luino</h3>
+          <p class="hotel-meta">6 minutes from Villa Porta &mdash; a charming property on the Luino promenade. Limited availability; book ASAP.</p>
           <a href="https://www.caminhotelluino.com" target="_blank" rel="noopener" class="hotel-site-link">caminhotelluino.com</a>
           <a href="mailto:eventsconcierge@villaporta.style" class="btn">Email to book</a>
-          <button class="hotel-more"><span class="plus"></span> Booking Instructions</button>
+          <button type="button" class="hotel-more"><span class="plus"></span> Booking Instructions</button>
           <div class="hotel-detail">
             <div class="hotel-detail-inner">
               <ul>
-                <li>To book, email <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a> with your guest names, room type, and mention you're with the Czyz/Haley wedding.</li>
+                <li>To book, email <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a> with your guest names and room type, and mention that you&rsquo;re with the Czyz/Haley wedding.</li>
                 <li>Our guest concierge will coordinate with the hotel on your behalf to secure reserved rooms.</li>
               </ul>
             </div>
@@ -386,11 +391,11 @@
       <div class="hotel-card">
         <div class="hotel-photo" style="background-image:url('assets/images/hotel-internazionale.jpg');"></div>
         <div class="hotel-body">
-          <h4>Hotel Internazionale Luino</h4>
+          <h3>Hotel Internazionale Luino</h3>
           <p class="hotel-meta">7 minutes from Villa Porta &mdash; a budget-friendly European hotel in downtown Luino.</p>
-          <a href="https://www.hi-luino.com" target="_blank" rel="noopener" class="hotel-site-link">hi-luino.com</a>
+          <a href="https://hi-luino.com/en/" target="_blank" rel="noopener" class="hotel-site-link">hi-luino.com</a>
           <a href="mailto:info@hi-luino.com" class="btn">Email to book</a>
-          <button class="hotel-more"><span class="plus"></span> Booking Instructions</button>
+          <button type="button" class="hotel-more"><span class="plus"></span> Booking Instructions</button>
           <div class="hotel-detail">
             <div class="hotel-detail-inner">
               <p><strong>Booking Code</strong>: wedding Czyz&amp;Haley</p>
@@ -405,7 +410,7 @@
     </div>
 
     <div class="concierge-card reveal">
-      <h4>Not the right fit?</h4>
+      <h3>Not the right fit?</h3>
       <p>Our guest concierge can help coordinate other lodging options, including vacation rentals or larger houses &mdash; reach out!</p>
       <a href="mailto:eventsconcierge@villaporta.style">eventsconcierge@villaporta.style</a>
     </div>
@@ -432,27 +437,27 @@
       <div class="subsection-head"><h3>On Lake Maggiore</h3></div>
       <div class="card-grid">
         <div class="todo-card">
-          <img src="assets/images/venue-aerial.jpg" alt="A boat on Lake Maggiore near Villa Porta" loading="lazy">
+          <img src="assets/images/venue-aerial.jpg" width="1800" height="1200" alt="A boat on Lake Maggiore near Villa Porta" loading="lazy" decoding="async">
           <h4>Boat day</h4>
-          <p>Rent a boat and explore the Borromean Islands or quiet corners of the lake. Speaker, suit, snacks, and you can&rsquo;t go wrong. Highly recommend!</p>
+          <p>Rent a boat and explore the Borromean Islands or quiet corners of the lake. A speaker, swimsuits, and snacks &mdash; you can&rsquo;t go wrong. Highly recommended!</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/thingstodo-pasta.jpg" alt="Hands rolling fresh pasta dough" loading="lazy">
+          <img src="assets/images/thingstodo-pasta.jpg" width="1600" height="1066" alt="Hands rolling fresh pasta dough" loading="lazy" decoding="async">
           <h4>Wine &amp; dine</h4>
-          <p>A pasta-making class, an aperitivo hour (order a Hugo Spritz!), local winery &mdash; there&rsquo;s more good food and wine than seems imaginable.</p>
+          <p>Book a pasta-making class, linger over aperitivo (order a Hugo Spritz!), or visit a local winery &mdash; there&rsquo;s more good food and wine than seems imaginable.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/villages.jpg" alt="Colorful lakeside village houses on Lake Maggiore" loading="lazy">
+          <img src="assets/images/villages.jpg" width="678" height="452" alt="Colorful lakeside village houses on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Village strolls</h4>
           <p>Luino is well known for its Wednesday market. Cannobio has pastel-colored houses and cobblestone streets, while Isola dei Pescatori is a tiny, romantic fishing island with permanent residents and quaint cobblestone alleys.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/shaka-beach.jpg" alt="Holland looking out at Shaka Beach on Lake Maggiore" loading="lazy">
+          <img src="assets/images/shaka-beach.jpg" width="1200" height="1600" alt="Holland looking out at Shaka Beach on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Shaka Beach</h4>
           <p>23 minutes north of Villa Porta, across the Swiss border &mdash; a fun, casual beach area with dreamy lake &amp; mountain views, a water swing, and tasty drinks at a beach shack.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/lm-ferry.jpg" alt="A ferry passing Isola Bella on Lake Maggiore" loading="lazy">
+          <img src="assets/images/lm-ferry.jpg" width="720" height="450" alt="A ferry passing Isola Bella on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Explore the lake</h4>
           <p>Ferries connect Maggiore's towns and islands &mdash; an easy, fun way to see more of the lake without a car. Luino has a ferry terminal.</p>
         </div>
@@ -463,30 +468,30 @@
       <div class="subsection-head"><h3>Holland&rsquo;s further out faves</h3></div>
       <div class="card-grid">
         <div class="todo-card">
-          <img src="assets/images/travel/travel-como1.jpg" alt="Lake Como, Italy" loading="lazy">
+          <img src="assets/images/travel/travel-como1.jpg" width="1000" height="1333" alt="Lake Como, Italy" loading="lazy" decoding="async">
           <h4>Lake Lugano or Lake Como</h4>
-          <p>Lugano: ~1&ndash;1.5 hours east, sitting across the eastern Swiss border in some parts. The smaller, middle sibling of Maggiore and Como. Great for boating, swimming, and relaxing.</p>
-          <p>Como: ~1.5 hours east &mdash; iconic lake known for its luxurious views, residents, and shops. Can get busy during peak season, but iconic for a reason.</p>
+          <p>Lugano: ~1&ndash;1.5 hours east in Switzerland &mdash; the smaller, middle sibling of Maggiore and Como. Great for boating, swimming, and relaxing.</p>
+          <p>Como: ~1.5 hours east &mdash; an iconic lake known for grand villas, mountain views, and elegant shops. It can get busy during peak season, but it&rsquo;s famous for a reason.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/holland-lg.jpg" alt="Holland looking out over Lake Garda from the bow of a boat" loading="lazy">
+          <img src="assets/images/holland-lg.jpg" width="1086" height="1448" alt="Holland looking out over Lake Garda from the bow of a boat" loading="lazy" decoding="async">
           <h4>Lake Garda</h4>
-          <p>The initial proposal spot &mdash; ~3 hours east, huge, beautiful alpine lake. A more laidback Lake Como vibe with fewer crowds. Rent a boat, bikes, walk the shops, eat beside Castello Scaligero.</p>
+          <p>The initial proposal spot &mdash; ~3 hours east, a huge, beautiful alpine lake. A more laid-back Lake Como vibe with fewer crowds. Rent a boat or bikes, browse the shops, and eat beside Castello Scaligero.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/travel/travel-interlaken.jpg" alt="Holland at Interlaken, Switzerland" loading="lazy">
+          <img src="assets/images/travel/travel-interlaken.jpg" width="1000" height="1333" alt="Holland at Interlaken, Switzerland" loading="lazy" decoding="async">
           <h4>Interlaken | Switzerland</h4>
           <p>~3.3 hours away &mdash; breathtaking blue waters you won&rsquo;t find anywhere else; quiet and relaxed. Consider visiting Grindelwald and take the gondola to the &ldquo;top of Europe,&rdquo; where you can walk, hike, eat, or ride the mountain coaster down!</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/dolomites-further.jpg" alt="The Italian Dolomites" loading="lazy">
+          <img src="assets/images/dolomites-further.jpg" width="1200" height="1600" alt="The Italian Dolomites" loading="lazy" decoding="async">
           <h4>Italian Dolomites</h4>
           <p>Further out, but unforgettable. We can&rsquo;t get enough. A must-do if you have always wanted to hike the Italian Alps, via ferrata, bike Sellaronda, or relax at a mountain spa.</p>
         </div>
         <div class="todo-card">
-          <img src="assets/images/gondola.jpg" alt="A gondola in Venice, Italy" loading="lazy">
+          <img src="assets/images/gondola.jpg" width="1200" height="1600" alt="A gondola in Venice, Italy" loading="lazy" decoding="async">
           <h4>Venice</h4>
-          <p>~3.5&ndash;4 hours &mdash; one of the world&rsquo;s most iconic cities, catch it before it sinks! Pro tip: wake up early (thanks, Holland) and explore the city at sunrise before the crowds and heat hit.</p>
+          <p>~3.5&ndash;4 hours &mdash; one of the world&rsquo;s most iconic cities. Catch it before it sinks! Pro tip: wake up early (thanks, Holland) and explore the city at sunrise before the crowds and heat hit.</p>
         </div>
       </div>
     </div>
@@ -539,8 +544,8 @@
         <h3>Getting around</h3>
         <ul class="tip-list">
           <li>Trains between Milan and the lake &mdash; and most places &mdash; are easy, reliable, and scenic</li>
-          <li>Local taxis and private transfers are the norm from the airport to the lake; Uber &amp; Lyft are not always available. Plan ahead</li>
-          <li>Keep some cash on hand &mdash; not every small cafe or boat takes cards, but most do</li>
+          <li>Local taxis and private transfers are the norm from the airport to the lake. Rideshare availability is limited, so plan ahead</li>
+          <li>Keep some cash on hand &mdash; not every small caf&eacute; or boat takes cards, but most do</li>
           <li>Tipping isn&rsquo;t generally expected, and tax is included in displayed prices &mdash; what you see is typically what you pay</li>
           <li>Renting a car? Go small. Narrow lanes and tight parking make a smaller car much easier here</li>
         </ul>
@@ -567,37 +572,37 @@
 
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-q">Where should we fly into? <span class="plus"></span></button>
+            <button type="button" class="faq-q">Where should we fly into? <span class="plus"></span></button>
             <div class="faq-a"><p>Milan is your best bet &mdash; either Malpensa (MXP) or Linate (LIN), both roughly an hour to an hour and a half from Villa Porta. Lugano Airport in Switzerland is also worth checking, depending on your starting point.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">How do we get to Villa Porta? <span class="plus"></span></button>
-            <div class="faq-a"><p>By rental car, taxi, or private transfer. Uber exists at major airports, but is less reliable than in the US. We'll provide transportation to and from Villa Porta for all wedding events from the Luino hotels &mdash; see Stay for more details.</p></div>
+            <button type="button" class="faq-q">How do we get to Villa Porta? <span class="plus"></span></button>
+            <div class="faq-a"><p>By rental car, taxi, or private transfer. Rideshare availability is limited, so plan ahead. We&rsquo;ll provide transportation to and from Villa Porta for all wedding events from the Luino hotels &mdash; see Stay for more details.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Can we bring our kids? <span class="plus"></span></button>
-            <div class="faq-a"><p>As much as we love your little ones and would love to celebrate with them, Villa Porta's venue means we're unfortunately not able to accommodate children at any of the weekend's events.</p></div>
+            <button type="button" class="faq-q">Can we bring our kids? <span class="plus"></span></button>
+            <div class="faq-a"><p>As much as we love your little ones and would love to celebrate with them, venue capacity means we&rsquo;re unfortunately unable to accommodate children at any of the weekend&rsquo;s events.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">What should we wear? <span class="plus"></span></button>
-            <div class="faq-a"><p>For Benvenuti al Lago!: casual lakeside attire &mdash; sundresses, shorts, sandals, linens, polos, nothing too formal. For La Bella Giornata: navy or black suits for men and long dresses in any color for women. See The Weekend for details on each event.</p></div>
+            <button type="button" class="faq-q">What should we wear? <span class="plus"></span></button>
+            <div class="faq-a"><p>For <span lang="it"><em>Benvenuti al Lago</em></span>: casual lakeside attire &mdash; sundresses, shorts, sandals, linens, polos, nothing too formal. For <span lang="it"><em>La Bella Giornata</em></span>: navy or black suits, or long dresses in any color. See The Weekend for details on each event.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Will transportation be provided? <span class="plus"></span></button>
+            <button type="button" class="faq-q">Will transportation be provided? <span class="plus"></span></button>
             <div class="faq-a"><p>Yes &mdash; to and from Villa Porta for all three wedding events, departing from the Luino hotels. Our guest concierge is happy to help you coordinate other personal transportation you may need.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Is there parking at the venue? <span class="plus"></span></button>
+            <button type="button" class="faq-q">Is there parking at the venue? <span class="plus"></span></button>
             <div class="faq-a"><p>Parking is limited, but will be available at the venue on the wedding day.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">What if I have dietary restrictions? <span class="plus"></span></button>
+            <button type="button" class="faq-q">What if I have dietary restrictions? <span class="plus"></span></button>
             <div class="faq-a"><p>Let us know when you RSVP, and Villa Porta's kitchen will take good care of you.</p></div>
           </div>
         </div>
       </div>
       <figure class="split-media photo-with-caption reveal">
-        <img src="assets/images/faq-dogs.jpg" alt="Holland and a second golden retriever, side by side" loading="lazy">
+        <img src="assets/images/faq-dogs.jpg" width="1286" height="1406" alt="Holland and a second golden retriever, side by side" loading="lazy" decoding="async">
         <figcaption>Got a question? Ask our moms!</figcaption>
       </figure>
     </div>
@@ -621,7 +626,8 @@
     <div class="pane reveal">
       <div class="pane-media" style="background-image:url('assets/images/proposal-bridge-registry.jpg');"></div>
       <div class="pane-copy">
-        <p>The love and support you&rsquo;ve given us over the years surpasses the value of any physical gift; you&rsquo;ve already contributed far more than you&rsquo;ll ever know. For those traveling to celebrate with us&hellip; don&rsquo;t even think about it! Your presence is the ultimate gift.</p>
+        <p class="registry-priority">For those traveling to celebrate with us&hellip; don&rsquo;t even think about it!</p>
+        <p>The love and support you&rsquo;ve given us over the years surpasses the value of any physical gift; you&rsquo;ve already contributed far more than you&rsquo;ll ever know.</p>
         <p>For those who can&rsquo;t help themselves, we&rsquo;ve put together a few items we plan to purchase as we (officially) start our life together.</p>
         <a href="https://www.zola.com/registry/amyandmegan2027" target="_blank" rel="noopener" class="btn solid">Registry</a>
       </div>
@@ -631,7 +637,7 @@
 
 </main>
 
-<footer>
+<footer inert aria-hidden="true">
   <div class="wrap">
     <div class="footer-inner">
       <div>
@@ -648,6 +654,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807"></script>
+<script src="js/main.js?v=20260807-3"></script>
 </body>
 </html>
