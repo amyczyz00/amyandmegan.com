@@ -23,6 +23,7 @@
     setTimeout(() => {
       gate.style.display = 'none';
       if(persist) document.querySelector('main h1')?.focus();
+      document.dispatchEvent(new CustomEvent('site:unlocked'));
     }, 550);
   }
 
@@ -54,6 +55,47 @@
       }
     });
   }
+})();
+
+// ---------- friendly mobile-only desktop-view suggestion ----------
+(function(){
+  const note = document.getElementById('mobileDesktopNote');
+  if(!note) return; // RSVP intentionally does not include this prompt.
+
+  const closeButton = note.querySelector('.mobile-desktop-note-close');
+  const gate = document.getElementById('site-gate');
+  const mobileQuery = window.matchMedia('(max-width: 767px)');
+  const DISMISSED_KEY = 'awg-desktop-note-dismissed';
+  let dismissed = false;
+  let hideTimer = null;
+  try { dismissed = sessionStorage.getItem(DISMISSED_KEY) === '1'; } catch(e){}
+
+  function showNote(){
+    if(!mobileQuery.matches || dismissed || (gate && !gate.classList.contains('unlocked'))) return;
+    if(hideTimer) clearTimeout(hideTimer);
+    note.hidden = false;
+    requestAnimationFrame(() => note.classList.add('is-visible'));
+  }
+
+  function hideNote(remember){
+    note.classList.remove('is-visible');
+    if(remember){
+      dismissed = true;
+      try { sessionStorage.setItem(DISMISSED_KEY, '1'); } catch(e){}
+    }
+    hideTimer = setTimeout(() => { note.hidden = true; }, 220);
+  }
+
+  closeButton?.addEventListener('click', () => hideNote(true));
+  document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape' && !note.hidden) hideNote(true);
+  });
+  mobileQuery.addEventListener('change', (event) => {
+    if(event.matches) showNote();
+    else hideNote(false);
+  });
+  document.addEventListener('site:unlocked', showNote);
+  setTimeout(showNote, 700);
 })();
 
 // ---------- sticky nav + active link ----------
