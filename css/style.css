@@ -561,7 +561,8 @@ body.gate-locked{overflow:hidden;}
 .stay-transport-tag{display:inline-flex; align-items:center; gap:.45rem; max-width:none; padding:.45em .72em; background:var(--gold); color:var(--gold-ink); font-size:9px; letter-spacing:.075em; text-align:center; white-space:nowrap; box-shadow:0 5px 14px rgba(73,59,18,.1);}
 .stay-transport-tag::before{content:"\2726"; font-size:1.05em;}
 .transport-location .stay-location-head{display:block;}
-.transport-location .stay-transport-tag{margin-bottom:.8rem;}
+.transport-location .stay-location-kicker-row{display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; margin-bottom:.55rem;}
+.transport-location .stay-location-label,.transport-location .stay-transport-tag{margin:0;}
 @media (min-width:701px){
   .transport-location .stay-location-head h4{white-space:nowrap;}
 }
