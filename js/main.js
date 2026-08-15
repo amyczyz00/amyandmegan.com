@@ -104,7 +104,9 @@
   }
 
   closeButton?.addEventListener('click', () => hideNote(true));
-  backdrop?.addEventListener('click', () => hideNote(true));
+  backdrop?.addEventListener('click', (event) => {
+    if(event.target === backdrop) hideNote(true);
+  });
   document.addEventListener('keydown', (event) => {
     if(note.hidden) return;
     if(event.key === 'Escape') hideNote(true);
