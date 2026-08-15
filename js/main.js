@@ -222,6 +222,7 @@ function wireAccordionGroup(itemSelector, triggerSelector, panelSelector, exclus
 wireAccordionGroup('.faq-item', '.faq-q', '.faq-a', true);
 wireAccordionGroup('.schedule-item', '.schedule-more', '.schedule-detail', false);
 wireAccordionGroup('.hotel-card', '.hotel-more', '.hotel-detail', false);
+wireAccordionGroup('.villa-collection', '.villa-more', '.villa-detail', false);
 
 // ---------- story photo carousel ----------
 const carousel = document.querySelector('.story-carousel');
