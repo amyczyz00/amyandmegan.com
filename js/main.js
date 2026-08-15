@@ -176,10 +176,10 @@ function setMenuOpen(isOpen){
   }
 }
 if(toggle){
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', (event) => {
     const willOpen = !linksEl.classList.contains('open');
     setMenuOpen(willOpen);
-    if(willOpen) linksEl.querySelector('a')?.focus();
+    if(willOpen && event.detail === 0) linksEl.querySelector('a')?.focus();
   });
   navLinks.forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
   if(backdropEl) backdropEl.addEventListener('click', () => setMenuOpen(false));
