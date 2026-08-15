@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Join us for a weekend on Lake Maggiore as we get married at Villa Porta — 4 June 2027.">
 <meta name="twitter:image" content="https://amyandmegan.com/assets/images/og-share.jpg">
 
-<link rel="stylesheet" href="css/style.css?v=20260814-8">
+<link rel="stylesheet" href="css/style.css?v=20260814-10">
 <link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -48,7 +48,7 @@
 <div class="mobile-desktop-note-backdrop" id="mobileDesktopNoteBackdrop" aria-hidden="true" hidden></div>
 <aside class="mobile-desktop-note" id="mobileDesktopNote" role="dialog" aria-modal="true" aria-labelledby="mobileDesktopNoteTitle" hidden>
   <button type="button" class="mobile-desktop-note-close" aria-label="Dismiss desktop viewing suggestion">&times;</button>
-  <span class="eyebrow">A little note</span>
+  <span class="eyebrow mobile-note-eyebrow"><span>A little note</span><span class="mobile-note-sparkle" aria-hidden="true">&#10024;</span></span>
   <p class="mobile-desktop-note-title" id="mobileDesktopNoteTitle">PS: I look even better on a big screen.</p>
   <p>For the prettiest view, visit again on a desktop or iPad.</p>
 </aside>
@@ -281,22 +281,24 @@
       </div>
     </div>
 
-    <div class="info-callout reveal with-icon">
-      <div class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><path d="M9.4 10h.01M14.6 10h.01M9.5 14c.7.7 1.5 1 2.5 1s1.8-.3 2.5-1M12 4c0-1.4 1-2.5 2.4-2.5"/><path d="M6.5 17.5C7.9 20 9.7 21 12 21s4.1-1 5.5-3.5"/></svg>
-      </div>
-      <div class="info-callout-copy">
-        <p>As much as we&rsquo;d love to see your little ones, unfortunately, we cannot accommodate children at any of the weekend&rsquo;s events.</p>
-      </div>
-    </div>
+    <div class="weekend-callout-grid reveal">
+      <aside class="info-callout with-icon">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v4l2.2 2.7a4 4 0 0 1 .8 2.4V19a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7.9a4 4 0 0 1 .8-2.4L9 6V2Z"/><path d="M9 6h6M6 13h12"/></svg>
+        </div>
+        <div class="info-callout-copy">
+          <p>As much as we&rsquo;d love to see your little ones, unfortunately, we cannot accommodate children at any of the weekend&rsquo;s events.</p>
+        </div>
+      </aside>
 
-    <div class="info-callout reveal with-icon">
-      <div class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.4-4.2A2 2 0 0 1 8.3 5.4h7.4a2 2 0 0 1 1.9 1.4L19 11"/><rect x="2.8" y="11" width="18.4" height="5.2" rx="1.4"/><circle cx="7.3" cy="18" r="1.7"/><circle cx="16.7" cy="18" r="1.7"/></svg>
-      </div>
-      <div class="info-callout-copy">
-        <p>Transportation will be provided to and from downtown Luino hotels (<a href="#stay">see Stay</a>).</p>
-      </div>
+      <aside class="info-callout with-icon">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.4-4.2A2 2 0 0 1 8.3 5.4h7.4a2 2 0 0 1 1.9 1.4L19 11"/><rect x="2.8" y="11" width="18.4" height="5.2" rx="1.4"/><circle cx="7.3" cy="18" r="1.7"/><circle cx="16.7" cy="18" r="1.7"/></svg>
+        </div>
+        <div class="info-callout-copy">
+          <p>Transportation will be provided to and from downtown Luino hotels for all wedding events (<a href="#stay">see Stay</a>).</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -396,7 +398,7 @@
         <div class="hotel-photo" style="background-image:url('assets/images/hotel-camin.jpg');"></div>
         <div class="hotel-body">
           <h3>Camin Hotel Luino</h3>
-          <p class="hotel-meta">A charming lakefront hotel on the Luino promenade, approximately 5 minutes from Villa Porta. Limited availability; we recommend booking early.</p>
+          <p class="hotel-meta">A charming lakefront hotel on the Luino promenade, approximately 4 minutes from Villa Porta. Limited availability; we recommend booking early.</p>
           <div class="hotel-actions">
             <a href="https://www.caminhotelluino.com" target="_blank" rel="noopener" class="hotel-site-link">caminhotelluino.com</a>
             <a href="mailto:eventsconcierge@villaporta.style" class="btn">Email to book</a>
@@ -467,7 +469,10 @@
 
           <div class="stay-booking-code">
             <span class="stay-booking-label">Booking code</span>
-            <p>Use <strong>wedding Czyz&amp;Haley</strong> in the <em>&ldquo;I have a promo code&rdquo;</em> field when booking any Charming Moment property.</p>
+            <div class="stay-booking-copy">
+              <p>Use <strong>wedding Czyz&amp;Haley</strong> in the <em>&ldquo;I have a promo code&rdquo;</em> field when booking any Charming Moment property.</p>
+              <p>Special rate applicable to non-refundable rooms and apartments.</p>
+            </div>
           </div>
 
           <p class="stay-availability-note"><strong>A note on availability:</strong> each listing below is one individual residence rather than a hotel, so availability is very limited and a property may already be booked. Please check the live listing before making plans.</p>
@@ -503,15 +508,15 @@
                 <li>
                   <a class="stay-property-link" href="https://villaportacollection.style/en/case/casa-jolie-maison/" target="_blank" rel="noopener">Casa Jolie Maison</a>
                   <dl class="stay-property-facts">
-                    <div><dt>To Villa Porta</dt><dd>2-minute walk</dd></div>
-                    <div><dt>Setup</dt><dd>2 sleeping areas &middot; up to 8 guests</dd></div>
+                    <div><dt>To Villa Porta</dt><dd>A few steps</dd></div>
+                    <div><dt>Setup</dt><dd>1 bedroom + loft &middot; up to 8 guests</dd></div>
                   </dl>
                 </li>
                 <li>
                   <a class="stay-property-link" href="https://villaportacollection.style/en/case/casa-ortensia/" target="_blank" rel="noopener">Casa Ortensia</a>
                   <dl class="stay-property-facts">
                     <div><dt>To Villa Porta</dt><dd>3-minute walk</dd></div>
-                    <div><dt>Setup</dt><dd>Studio&ndash;2-bedroom apartments</dd></div>
+                    <div><dt>Setup</dt><dd>Studio, 1- &amp; 2-bedroom apartments &middot; 4&ndash;6 guests</dd></div>
                   </dl>
                 </li>
                 <li>
@@ -524,21 +529,21 @@
               </ul>
             </article>
 
-            <article class="stay-location-group">
+            <article class="stay-location-group transport-location">
               <div class="stay-location-head">
                 <div>
                   <span class="stay-location-label">Downtown Luino</span>
-                  <h4>Convenient for the Luino event transport hub</h4>
+                  <h4>Convenient for Luino pick-up</h4>
                 </div>
-                <span class="stay-transport-tag">Walkable to Luino event transport hub</span>
+                <span class="stay-transport-tag">Walkable to Luino pick-up spot</span>
               </div>
               <p>Downtown apartments near Camin Hotel Luino and Hotel Internazionale.</p>
               <ul class="stay-property-list">
                 <li>
                   <a class="stay-property-link" href="https://villaportacollection.style/en/case/casa-porto-vecchio/" target="_blank" rel="noopener">Casa Porto Vecchio</a>
-                  <p class="stay-property-type">1-bedroom apartments &middot; up to 4 guests</p>
+                  <p class="stay-property-type">1 bedroom &middot; up to 4 adults + 1 child under 10</p>
                   <dl class="stay-times">
-                    <div><dt>To Villa Porta</dt><dd>4-minute drive</dd></div>
+                    <div><dt>To Villa Porta</dt><dd>3-minute drive</dd></div>
                     <div><dt>To Luino event transport hub</dt><dd>9-minute walk</dd></div>
                   </dl>
                 </li>
@@ -560,7 +565,7 @@
               <ul class="stay-property-list">
                 <li>
                   <a class="stay-property-link" href="https://villaportacollection.style/en/luxury-villas/villa-amatissima/" target="_blank" rel="noopener">Villa Amatissima</a>
-                  <p class="stay-property-type">1&ndash;2-bedroom apartments &middot; up to 6 guests</p>
+                  <p class="stay-property-type">Three 1&ndash;2-bedroom apartments &middot; 4&ndash;6 guests each</p>
                   <dl class="stay-times">
                     <div><dt>To Villa Porta</dt><dd>8-minute drive</dd></div>
                     <div><dt>To Luino event transport hub</dt><dd>4-minute drive</dd></div>
@@ -609,27 +614,42 @@
         <div class="todo-card">
           <img src="assets/images/venue-aerial.jpg" width="1800" height="1200" alt="A boat on Lake Maggiore near Villa Porta" loading="lazy" decoding="async">
           <h4>Boat day</h4>
-          <p>Rent a boat and explore the Borromean Islands or quiet corners of the lake. A speaker, swimsuits, and snacks &mdash; you can&rsquo;t go wrong. Highly recommended!</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Rent a boat and explore the Borromean Islands or quiet corners of the lake. A speaker, swimsuits, and snacks &mdash; you can&rsquo;t go wrong. Highly recommended!</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/thingstodo-pasta.jpg" width="1600" height="1066" alt="Hands rolling fresh pasta dough" loading="lazy" decoding="async">
           <h4>Wine &amp; dine</h4>
-          <p>Book a pasta-making class, linger over aperitivo (order a Hugo Spritz!), or visit a local winery &mdash; there&rsquo;s more good food and wine than seems imaginable.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Book a pasta-making class, linger over aperitivo (order a Hugo Spritz!), or visit a local winery &mdash; there&rsquo;s more good food and wine than seems imaginable.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/villages.jpg" width="678" height="452" alt="Colorful lakeside village houses on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Village strolls</h4>
-          <p>Luino is well known for its Wednesday market. Cannobio has pastel-colored houses and cobblestone streets, while Isola dei Pescatori is a tiny, romantic fishing island with permanent residents and quaint cobblestone alleys.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Luino is well known for its Wednesday market. Cannobio has pastel-colored houses and cobblestone streets, while Isola dei Pescatori is a tiny, romantic fishing island with permanent residents and quaint cobblestone alleys.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/shaka-beach.jpg" width="1200" height="1600" alt="Holland looking out at Shaka Beach on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Shaka Beach</h4>
-          <p>23 minutes north of Villa Porta, across the Swiss border &mdash; a fun, casual beach area with dreamy lake &amp; mountain views, a water swing, and tasty drinks at a beach shack.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>23 minutes north of Villa Porta, across the Swiss border &mdash; a fun, casual beach area with dreamy lake &amp; mountain views, a water swing, and tasty drinks at a beach shack.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/lm-ferry.jpg" width="720" height="450" alt="A ferry passing Isola Bella on Lake Maggiore" loading="lazy" decoding="async">
           <h4>Explore the lake</h4>
-          <p>Ferries connect Maggiore's towns and islands &mdash; an easy, fun way to see more of the lake without a car. Luino has a ferry terminal.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Ferries connect Maggiore's towns and islands &mdash; an easy, fun way to see more of the lake without a car. Luino has a ferry terminal.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -640,28 +660,43 @@
         <div class="todo-card">
           <img src="assets/images/travel/travel-como1.jpg" width="1000" height="1333" alt="Lake Como, Italy" loading="lazy" decoding="async">
           <h4>Lake Lugano or Lake Como</h4>
-          <p>Lugano: ~1&ndash;1.5 hours east in Switzerland &mdash; the smaller, middle sibling of Maggiore and Como. Great for boating, swimming, and relaxing.</p>
-          <p>Como: ~1.5 hours east &mdash; an iconic lake known for grand villas, mountain views, and elegant shops. It can get busy during peak season, but it&rsquo;s famous for a reason.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Lugano: ~1&ndash;1.5 hours east in Switzerland &mdash; the smaller, middle sibling of Maggiore and Como. Great for boating, swimming, and relaxing.</p>
+            <p>Como: ~1.5 hours east &mdash; an iconic lake known for grand villas, mountain views, and elegant shops. It can get busy during peak season, but it&rsquo;s famous for a reason.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/holland-lg.jpg" width="1086" height="1448" alt="Holland looking out over Lake Garda from the bow of a boat" loading="lazy" decoding="async">
           <h4>Lake Garda</h4>
-          <p>The initial proposal spot &mdash; ~3 hours east, a huge, beautiful alpine lake. A more laid-back Lake Como vibe with fewer crowds. Rent a boat or bikes, browse the shops, and eat beside Castello Scaligero.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>The initial proposal spot &mdash; ~3 hours east, a huge, beautiful alpine lake. A more laid-back Lake Como vibe with fewer crowds. Rent a boat or bikes, browse the shops, and eat beside Castello Scaligero.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/travel/travel-interlaken.jpg" width="1000" height="1333" alt="Holland at Interlaken, Switzerland" loading="lazy" decoding="async">
           <h4>Interlaken | Switzerland</h4>
-          <p>~3.3 hours away &mdash; breathtaking blue waters you won&rsquo;t find anywhere else; quiet and relaxed. Consider visiting Grindelwald and take the gondola to the &ldquo;top of Europe,&rdquo; where you can walk, hike, eat, or ride the mountain coaster down!</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>~3.3 hours away &mdash; breathtaking blue waters you won&rsquo;t find anywhere else; quiet and relaxed. Consider visiting Grindelwald and take the gondola to the &ldquo;top of Europe,&rdquo; where you can walk, hike, eat, or ride the mountain coaster down!</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/dolomites-further.jpg" width="1200" height="1600" alt="The Italian Dolomites" loading="lazy" decoding="async">
           <h4>Italian Dolomites</h4>
-          <p>Further out, but unforgettable. We can&rsquo;t get enough. A must-do if you have always wanted to hike the Italian Alps, via ferrata, bike Sellaronda, or relax at a mountain spa.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>Further out, but unforgettable. We can&rsquo;t get enough. A must-do if you have always wanted to hike the Italian Alps, via ferrata, bike Sellaronda, or relax at a mountain spa.</p>
+          </div>
         </div>
         <div class="todo-card">
           <img src="assets/images/gondola.jpg" width="1200" height="1600" alt="A gondola in Venice, Italy" loading="lazy" decoding="async">
           <h4>Venice</h4>
-          <p>~3.5&ndash;4 hours &mdash; one of the world&rsquo;s most iconic cities. Catch it before it sinks! Pro tip: wake up early (thanks, Holland) and explore the city at sunrise before the crowds and heat hit.</p>
+          <button type="button" class="todo-more"><span>Details</span><span class="plus" aria-hidden="true"></span></button>
+          <div class="todo-card-detail">
+            <p>~3.5&ndash;4 hours &mdash; one of the world&rsquo;s most iconic cities. Catch it before it sinks! Pro tip: wake up early (thanks, Holland) and explore the city at sunrise before the crowds and heat hit.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -832,6 +867,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260814-3"></script>
+<script src="js/main.js?v=20260814-4"></script>
 </body>
 </html>

@@ -247,6 +247,66 @@ wireAccordionGroup('.schedule-item', '.schedule-more', '.schedule-detail', false
 wireAccordionGroup('.hotel-card', '.hotel-more', '.hotel-detail', false);
 wireAccordionGroup('.villa-collection', '.villa-more', '.villa-detail', false);
 
+// ---------- mobile-only Things to Do details ----------
+const todoSection = document.getElementById('thingstodo');
+if(todoSection){
+  const todoMobileQuery = window.matchMedia('(max-width: 600px)');
+  const todoCards = Array.from(todoSection.querySelectorAll('.todo-card'));
+
+  todoCards.forEach((card, index) => {
+    const trigger = card.querySelector('.todo-more');
+    const panel = card.querySelector('.todo-card-detail');
+    const title = card.querySelector('h4')?.textContent.trim() || 'this recommendation';
+    if(!trigger || !panel) return;
+
+    const panelId = panel.id || `todo-detail-${index + 1}`;
+    panel.id = panelId;
+    trigger.setAttribute('aria-controls', panelId);
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', `Show details for ${title}`);
+
+    trigger.addEventListener('click', () => {
+      if(!todoMobileQuery.matches) return;
+      const willOpen = !card.classList.contains('open');
+      card.classList.toggle('open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+      trigger.setAttribute('aria-label', `${willOpen ? 'Hide' : 'Show'} details for ${title}`);
+      panel.setAttribute('aria-hidden', String(!willOpen));
+      panel.style.maxHeight = willOpen ? `${panel.scrollHeight}px` : '0px';
+    });
+  });
+
+  function syncTodoCards(){
+    const isMobile = todoMobileQuery.matches;
+    todoSection.classList.toggle('todo-accordion-ready', isMobile);
+    todoCards.forEach(card => {
+      const trigger = card.querySelector('.todo-more');
+      const panel = card.querySelector('.todo-card-detail');
+      const title = card.querySelector('h4')?.textContent.trim() || 'this recommendation';
+      if(!trigger || !panel) return;
+
+      if(isMobile){
+        const isOpen = card.classList.contains('open');
+        trigger.hidden = false;
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        trigger.setAttribute('aria-label', `${isOpen ? 'Hide' : 'Show'} details for ${title}`);
+        panel.setAttribute('aria-hidden', String(!isOpen));
+        panel.style.maxHeight = isOpen ? `${panel.scrollHeight}px` : '0px';
+      } else {
+        card.classList.remove('open');
+        trigger.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-label', `Show details for ${title}`);
+        panel.removeAttribute('aria-hidden');
+        panel.style.maxHeight = '';
+      }
+    });
+  }
+
+  todoMobileQuery.addEventListener('change', syncTodoCards);
+  syncTodoCards();
+}
+
 // ---------- story photo carousel ----------
 const carousel = document.querySelector('.story-carousel');
 if(carousel){
