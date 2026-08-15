@@ -249,6 +249,28 @@ wireAccordionGroup('.schedule-item', '.schedule-more', '.schedule-detail', false
 wireAccordionGroup('.hotel-card', '.hotel-more', '.hotel-detail', false);
 wireAccordionGroup('.villa-collection', '.villa-more', '.villa-detail', false);
 
+// Keep the open weekend details aligned across the desktop card row.
+const scheduleItems = Array.from(document.querySelectorAll('.schedule-item'));
+const scheduleDesktopQuery = window.matchMedia('(min-width: 821px)');
+function syncScheduleDetailHeights(){
+  const openItems = scheduleItems.filter(item => item.classList.contains('open'));
+  const panels = scheduleItems.map(item => item.querySelector('.schedule-detail')).filter(Boolean);
+  panels.forEach(panel => { panel.style.minHeight = ''; });
+  if(!scheduleDesktopQuery.matches || !openItems.length) return;
+
+  const tallest = Math.max(...scheduleItems.map(item => item.querySelector('.schedule-detail-inner')?.scrollHeight || 0));
+  openItems.forEach(item => {
+    const panel = item.querySelector('.schedule-detail');
+    if(panel) panel.style.minHeight = `${tallest}px`;
+  });
+}
+scheduleItems.forEach(item => {
+  item.querySelector('.schedule-more')?.addEventListener('click', () => requestAnimationFrame(syncScheduleDetailHeights));
+});
+scheduleDesktopQuery.addEventListener('change', syncScheduleDetailHeights);
+window.addEventListener('resize', syncScheduleDetailHeights, {passive:true});
+document.fonts?.ready.then(syncScheduleDetailHeights);
+
 // ---------- mobile-only Things to Do details ----------
 const todoSection = document.getElementById('thingstodo');
 if(todoSection){
