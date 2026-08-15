@@ -62,6 +62,7 @@
   const note = document.getElementById('mobileDesktopNote');
   if(!note) return; // RSVP intentionally does not include this prompt.
 
+  const backdrop = document.getElementById('mobileDesktopNoteBackdrop');
   const closeButton = note.querySelector('.mobile-desktop-note-close');
   const gate = document.getElementById('site-gate');
   const mobileQuery = window.matchMedia('(max-width: 767px)');
@@ -71,24 +72,46 @@
   try { dismissed = sessionStorage.getItem(DISMISSED_KEY) === '1'; } catch(e){}
 
   function showNote(){
-    if(!mobileQuery.matches || dismissed || (gate && !gate.classList.contains('unlocked'))) return;
+    if(!mobileQuery.matches || dismissed || !note.hidden || (gate && !gate.classList.contains('unlocked'))) return;
     if(hideTimer) clearTimeout(hideTimer);
+    window.scrollTo(0, 0);
+    document.body.classList.add('desktop-note-open');
+    if(backdrop) backdrop.hidden = false;
     note.hidden = false;
-    requestAnimationFrame(() => note.classList.add('is-visible'));
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      backdrop?.classList.add('is-visible');
+      note.classList.add('is-visible');
+      closeButton?.focus({preventScroll:true});
+    });
   }
 
   function hideNote(remember){
     note.classList.remove('is-visible');
+    backdrop?.classList.remove('is-visible');
+    document.body.classList.remove('desktop-note-open');
     if(remember){
       dismissed = true;
       try { sessionStorage.setItem(DISMISSED_KEY, '1'); } catch(e){}
     }
-    hideTimer = setTimeout(() => { note.hidden = true; }, 220);
+    window.scrollTo(0, 0);
+    hideTimer = setTimeout(() => {
+      note.hidden = true;
+      if(backdrop) backdrop.hidden = true;
+      window.scrollTo(0, 0);
+      document.querySelector('.nav-mark')?.focus({preventScroll:true});
+    }, 220);
   }
 
   closeButton?.addEventListener('click', () => hideNote(true));
+  backdrop?.addEventListener('click', () => hideNote(true));
   document.addEventListener('keydown', (event) => {
-    if(event.key === 'Escape' && !note.hidden) hideNote(true);
+    if(note.hidden) return;
+    if(event.key === 'Escape') hideNote(true);
+    if(event.key === 'Tab'){
+      event.preventDefault();
+      closeButton?.focus({preventScroll:true});
+    }
   });
   mobileQuery.addEventListener('change', (event) => {
     if(event.matches) showNote();

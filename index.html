@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Join us for a weekend on Lake Maggiore as we get married at Villa Porta — 4 June 2027.">
 <meta name="twitter:image" content="https://amyandmegan.com/assets/images/og-share.jpg">
 
-<link rel="stylesheet" href="css/style.css?v=20260814-7">
+<link rel="stylesheet" href="css/style.css?v=20260814-8">
 <link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -45,10 +45,11 @@
   </div>
 </div>
 
-<aside class="mobile-desktop-note" id="mobileDesktopNote" aria-labelledby="mobileDesktopNoteTitle" aria-live="polite" hidden>
+<div class="mobile-desktop-note-backdrop" id="mobileDesktopNoteBackdrop" aria-hidden="true" hidden></div>
+<aside class="mobile-desktop-note" id="mobileDesktopNote" role="dialog" aria-modal="true" aria-labelledby="mobileDesktopNoteTitle" hidden>
   <button type="button" class="mobile-desktop-note-close" aria-label="Dismiss desktop viewing suggestion">&times;</button>
   <span class="eyebrow">A little note</span>
-  <p class="mobile-desktop-note-title" id="mobileDesktopNoteTitle">P.S. I look even better on a desktop!</p>
+  <p class="mobile-desktop-note-title" id="mobileDesktopNoteTitle">PS: I look even better on a big screen.</p>
   <p>For the prettiest view, visit again on a desktop or iPad.</p>
 </aside>
 
@@ -281,18 +282,20 @@
     </div>
 
     <div class="info-callout reveal with-icon">
-      <div class="icon emoji" aria-hidden="true">👶</div>
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><path d="M9.4 10h.01M14.6 10h.01M9.5 14c.7.7 1.5 1 2.5 1s1.8-.3 2.5-1M12 4c0-1.4 1-2.5 2.4-2.5"/><path d="M6.5 17.5C7.9 20 9.7 21 12 21s4.1-1 5.5-3.5"/></svg>
+      </div>
       <div class="info-callout-copy">
-        <p><strong>We&rsquo;re unable to accommodate children.</strong></p>
-        <p>As much as we&rsquo;d love to include your little ones, venue capacity prevents us from including children at any of the weekend&rsquo;s events.</p>
+        <p>As much as we&rsquo;d love to see your little ones, unfortunately, we cannot accommodate children at any of the weekend&rsquo;s events.</p>
       </div>
     </div>
 
     <div class="info-callout reveal with-icon">
-      <div class="icon emoji" aria-hidden="true">🚐</div>
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.4-4.2A2 2 0 0 1 8.3 5.4h7.4a2 2 0 0 1 1.9 1.4L19 11"/><rect x="2.8" y="11" width="18.4" height="5.2" rx="1.4"/><circle cx="7.3" cy="18" r="1.7"/><circle cx="16.7" cy="18" r="1.7"/></svg>
+      </div>
       <div class="info-callout-copy">
-        <p><strong>Transportation will be provided to and from the Luino event transport hub.</strong></p>
-        <p>Service will run between the hub and Villa Porta for all three wedding events. Detailed schedule to come.</p>
+        <p>Transportation will be provided to and from downtown Luino hotels (<a href="#stay">see Stay</a>).</p>
       </div>
     </div>
   </div>
@@ -441,12 +444,14 @@
       <div class="villa-collection-head">
         <div class="villa-collection-copy">
           <h3 id="villa-collection-title">Charming Moment by Villa Porta</h3>
-          <div class="villa-collection-tags">
-            <span class="hotel-tag">On/offsite combo</span>
-            <span class="hotel-tag group">Great for groups</span>
+          <div class="villa-collection-actions">
+            <div class="villa-collection-tags">
+              <span class="hotel-tag">On/offsite combo</span>
+              <span class="hotel-tag group">Great for groups</span>
+            </div>
+            <button type="button" class="villa-more"><span class="plus"></span><span>More details</span></button>
           </div>
         </div>
-        <button type="button" class="villa-more"><span class="plus"></span><span>More details</span></button>
         <div class="villa-collection-photo" role="img" aria-label="A Charming Moment residence surrounded by palms and hydrangeas"></div>
       </div>
 
@@ -571,10 +576,11 @@
     </section>
 
     <aside class="info-callout stay-concierge-callout reveal with-icon">
-      <div class="icon emoji" aria-hidden="true">&#128276;</div>
+      <div class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+      </div>
       <div class="info-callout-copy stay-concierge-copy">
         <p><strong>Not a fit? Please contact our concierge for more options.</strong></p>
-        <p>Villa Porta&rsquo;s guest concierge can help you find an accommodation that works for your stay.</p>
       </div>
       <a href="mailto:eventsconcierge@villaporta.style" class="btn">Contact our concierge</a>
     </aside>
@@ -681,15 +687,22 @@
 
     <div class="tip-columns reveal">
       <div class="tip-col">
-        <h3>Before you fly + Italy FYIs</h3>
+        <h3>Before you fly</h3>
         <ul class="tip-list">
           <li><strong>Check your passport</strong> &mdash; it must remain valid for at least 3 months beyond your planned departure from the EU. Don&rsquo;t wait to renew!</li>
-          <li>Italy runs on Central European Time (+9 from SF, +6 from DC)</li>
           <li>An eSIM is the easiest way to use your phone if you want to avoid carrier fees. We like Vodafone, Roamless, or Airalo</li>
-          <li>The euro is the Italian currency, but cards are widely accepted nearly everywhere</li>
           <li>Download the Google Translate app</li>
           <li>Download WhatsApp &mdash; many reservations and taxis use this messaging app to coordinate</li>
           <li>If renting a car, obtain an International Driving Permit (IDP). It&rsquo;s quick and easy online or at AAA</li>
+        </ul>
+      </div>
+      <div class="tip-col">
+        <h3>Italian FYIs</h3>
+        <ul class="tip-list">
+          <li>Italy runs on Central European Time (+9 from SF, +6 from DC)</li>
+          <li>The euro is the Italian currency, but cards are widely accepted nearly everywhere</li>
+          <li>Keep some cash on hand &mdash; not every small caf&eacute; or boat takes cards, but most do</li>
+          <li>Tipping isn&rsquo;t generally expected, and tax is included in displayed prices &mdash; what you see is typically what you pay</li>
         </ul>
       </div>
       <div class="tip-col">
@@ -709,8 +722,6 @@
         <ul class="tip-list">
           <li>Trains between Milan and the lake &mdash; and most places &mdash; are easy, reliable, and scenic</li>
           <li>Local taxis and private transfers are the norm from the airport to the lake. Rideshare availability is limited, so plan ahead</li>
-          <li>Keep some cash on hand &mdash; not every small caf&eacute; or boat takes cards, but most do</li>
-          <li>Tipping isn&rsquo;t generally expected, and tax is included in displayed prices &mdash; what you see is typically what you pay</li>
           <li>Renting a car? Go small. Narrow lanes and tight parking make a smaller car much easier here</li>
         </ul>
       </div>
@@ -794,8 +805,8 @@
       <div class="pane-media" style="background-image:url('assets/images/proposal-bridge-registry.jpg');"></div>
       <div class="pane-copy">
         <p class="registry-priority">For those traveling to celebrate with us&hellip; don&rsquo;t even think about it!</p>
-        <p>The love and support you&rsquo;ve given us over the years surpasses the value of any physical gift; you&rsquo;ve already contributed far more than you&rsquo;ll ever know.</p>
-        <p>For those who can&rsquo;t help themselves, we&rsquo;ve put together a few items we plan to purchase as we (officially) start our life together.</p>
+        <p>The love and support you&rsquo;ve given us over the years surpass the value of any physical gift; you&rsquo;ve already contributed far more than you&rsquo;ll ever know.</p>
+        <p>For those who can&rsquo;t help themselves, we&rsquo;ve put together a few funds and items we plan to prioritize as we kick off married life together. <strong class="registry-optional">Gifts are 100% optional (seriously).</strong></p>
         <a href="https://www.zola.com/registry/amyandmegan2027" target="_blank" rel="noopener" class="btn solid">Registry</a>
       </div>
     </div>
@@ -821,6 +832,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260814-2"></script>
+<script src="js/main.js?v=20260814-3"></script>
 </body>
 </html>
