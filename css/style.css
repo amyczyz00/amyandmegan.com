@@ -200,7 +200,7 @@ p{margin:0 0 1.1em; text-wrap:pretty;}
   background:none; border:0; color:inherit; cursor:pointer; padding:11px; position:relative; z-index:210;
 }
 .nav-toggle svg{width:22px; height:22px;}
-.nav-toggle-label{display:none;}
+.nav-toggle-label,.mobile-nav-rsvp{display:none;}
 .nav-toggle .icon-close{display:none;}
 .nav-toggle.open .icon-menu{display:none;}
 .nav-toggle.open .icon-close{display:block;}
@@ -222,11 +222,14 @@ p{margin:0 0 1.1em; text-wrap:pretty;}
   .nav-toggle{display:inline-flex;}
   .home-nav .nav-links{overflow-y:auto;}
   .home-nav .nav-links a{font-size:14px;}
+  .home-nav .mobile-nav-rsvp{display:block;}
+  .home-nav .mobile-nav-rsvp a{color:var(--accent-dark);}
   .home-nav .nav-toggle{width:auto; gap:.5rem; padding-inline:0;}
   .home-nav .nav-toggle-label{
     display:inline; font-family:var(--sans); font-size:13px; font-weight:600;
     letter-spacing:.12em; text-transform:uppercase;
   }
+  .home-nav .nav-toggle.open .icon-close{stroke:var(--ink);}
   .home-nav .nav-toggle.open .nav-toggle-label{visibility:hidden;}
   .nav-backdrop{
     display:block; position:fixed; inset:0; z-index:150;
